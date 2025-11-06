@@ -1,4 +1,4 @@
-package ArrayListQuestion;
+package ListDemo;
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ class Student implements Comparable<Student>{
 
 
 
-public class Demo {
+public class ArraylistDemo {
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
         students.add(new Student("Charlie", 3.5));
