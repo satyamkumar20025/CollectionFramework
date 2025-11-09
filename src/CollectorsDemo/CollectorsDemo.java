@@ -1,4 +1,4 @@
-package Collectors;
+package CollectorsDemo;
 
 import java.util.*;
 import java.util.stream.Collector;
