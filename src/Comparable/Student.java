@@ -26,14 +26,10 @@ class Student implements Comparable<Student> {
     }
 
     @Override
-    public int compareTo(Student other) {
-        // Descending by marks
-        if (this.marks != other.marks) {
-            return other.marks - this.marks;
+    public int compareTo(Student p) {
+        
+            return integer.marks - p.marks;
         }
-        // Ascending by name
-        return this.name.compareTo(other.name);
-    }
 
     @Override
     public String toString() {
