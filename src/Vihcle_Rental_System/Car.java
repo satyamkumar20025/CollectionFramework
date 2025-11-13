@@ -18,7 +18,7 @@ public class Car extends Vehicle implements Rentable {
 	 @Override
 	 public int rent() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 500;
 	 }
 
 	 @Override
