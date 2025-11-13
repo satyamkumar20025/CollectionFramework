@@ -17,12 +17,15 @@ public class Truck extends Vehicle implements Rentable {
 	 @Override
 	 public int rent() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 500;
 	 }
 
 	 @Override
 	 float calculateRentalCost(int date) {
+
+
 		// TODO Auto-generated method stub
+return date*500;
 		
 	 }
 
