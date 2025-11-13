@@ -20,10 +20,17 @@ class Student implements Comparable<Student> {
     
 
     @Override
+<<<<<<< HEAD:src/ComparableDemo/Student.java
     public int compareTo(Student s) {
         
             return this.marks - marks;
     }
+=======
+    public int compareTo(Student p) {
+        
+            return integer.marks - p.marks;
+        }
+>>>>>>> f46cf9a9c96ab62984498825da823e65b882d85b:src/Comparable/Student.java
 
     @Override
     public String toString() {
