@@ -24,7 +24,7 @@ public class Car extends Vehicle implements Rentable {
 	 @Override
 	 float calculateRentalCost(int date) {
 		// TODO Auto-generated method stub
-		
+		return date*500;
 	 }
 
 	
