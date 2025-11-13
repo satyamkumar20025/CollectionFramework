@@ -22,7 +22,7 @@ public class Car extends Vehicle implements Rentable {
 	 }
 
 	 @Override
-	 void calculateRentalCost(int date) {
+	 float calculateRentalCost(int date) {
 		// TODO Auto-generated method stub
 		
 	 }
