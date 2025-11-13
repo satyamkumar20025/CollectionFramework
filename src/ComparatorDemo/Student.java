@@ -13,13 +13,7 @@ class Student {
         this.marks = marks;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getMarks() {
-        return marks;
-    }
+   
 
     public static void main(String[] args) {
         ArrayList<Student> list = new ArrayList<>();
