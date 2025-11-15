@@ -6,4 +6,5 @@ public record InvalidAppointmentException() extends Exception {
 	    }
 
 
+
 	}

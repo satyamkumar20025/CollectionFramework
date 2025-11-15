@@ -4,17 +4,21 @@ public abstract class Vehicle implements Rentable {
 	private int vihclenumber;
 	private String vihclename;
 	private float dailyrent;
+	private String vihcleAvailable;
+
+	
 	/**
 	 * @param vihclenumber
 	 * @param vihclename
 	 * @param dailyrent
-	 * @param vihcletime 
+	 * @param vihcleAvailable
 	 */
-	public Vehicle(int vihclenumber, String vihclename, float dailyrent, int vihcletime) {
+	public Vehicle(int vihclenumber, String vihclename, float dailyrent, String vihcleAvailable) {
 		super();
 		this.vihclenumber = vihclenumber;
 		this.vihclename = vihclename;
 		this.dailyrent = dailyrent;
+		this.vihcleAvailable = vihcleAvailable;
 	}
 	public int getVihclenumber() {
 		return vihclenumber;
@@ -34,6 +38,16 @@ public abstract class Vehicle implements Rentable {
 	public void setDailyrent(float dailyrent) {
 		this.dailyrent = dailyrent;
 	} 
+	public String getVihcleAvailable() {
+		return vihcleAvailable;
+	}
+	public void setVihcleAvailable(String vihcleAvailable) {
+		this.vihcleAvailable = vihcleAvailable;
+	}
 	abstract float calculateRentalCost(int date);
+	public String getVehicle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

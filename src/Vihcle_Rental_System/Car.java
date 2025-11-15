@@ -1,28 +1,29 @@
 package Vihcle_Rental_System;
 
-public class Car extends Vehicle implements Rentable {
-
+public class Car extends Vehicle  {
 	
-
-
 	 /**
 	 * @param vihclenumber
 	 * @param vihclename
 	 * @param dailyrent
-	 * @param vihcletime
+	 * @param vihcleAvailable
 	 */
-	public Car(int vihclenumber, String vihclename, float dailyrent, int vihcletime) {
-		super(vihclenumber, vihclename, dailyrent, vihcletime);
+	public Car(int vihclenumber, String vihclename, float dailyrent, String vihcleAvailable) {
+		super(vihclenumber, vihclename, dailyrent, vihcleAvailable);
 	}
 
 	 @Override
-	 public int rent() {
+	 float calculateRentalCost( int days) {
 		// TODO Auto-generated method stub
-		return 0;
+		 return getDailyrent()*days*500;
+	 }
+	 @Override
+	 public int rent(int days) {
+		// TODO Auto-generated method stub
+		return 500;
 	 }
 
-	 @Override
-	 float calculateRentalCost(int date) {
+	 public void getDetails() {
 		// TODO Auto-generated method stub
 		
 	 }
