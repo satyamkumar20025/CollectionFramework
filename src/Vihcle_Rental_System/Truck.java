@@ -16,7 +16,7 @@ public class Truck extends Vehicle  {
 	 @Override
 	 float calculateRentalCost(int days) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+		 
 		 return getDailyrent()*days*500;
 	 }
 	 @Override
@@ -25,22 +25,8 @@ public class Truck extends Vehicle  {
 		return 500;
 	 }
 
-	 public void getDetails() {
-=======
-		return 500;
-	 }
-
-	 @Override
-	 float calculateRentalCost(int date) {
-
-
->>>>>>> 0f84c9ad612ca6bda440298e1333c0eccac65338
-		// TODO Auto-generated method stub
-return date*500;
-		
-	 }
-
-
+	 
+	
 }
 
 	

@@ -14,7 +14,7 @@ public class Bike extends Vehicle  {
 	 @Override
 	 float calculateRentalCost(int days) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		 return getDailyrent()*days*500;
 	 }
 
@@ -23,19 +23,7 @@ public class Bike extends Vehicle  {
 		// TODO Auto-generated method stub
 		return 500;
 	 }
-	 public void getDetails() {
-=======
-		return 500;
-	}
-
-	@Override
-	float calculateRentalCost(int date) {
-		return date*500;
->>>>>>> 0f84c9ad612ca6bda440298e1333c0eccac65338
-		// TODO Auto-generated method stub
-		
-	 }
-
+	 
 
 	
 }
