@@ -1,4 +1,4 @@
-package Vihcle_Rental_System;
+package VehicleRentalSystem;
 
 public class VehicleNotAvailableException extends Exception {
 
