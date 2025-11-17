@@ -2,8 +2,8 @@ package VehicleRentalSystem;
 static
 public  class VehicleBooking  { 
 	String bookingid;
-	Customer Customer;
-	Vehicle Vehicle;
+	Customer customer;
+	Vehicle vehicle;
 	int days;
 	double totalCost;
 	/**
