@@ -30,6 +30,11 @@ public  class VehicleBooking  {
     }
 
 	
+	private String totalCost() {
+		// TODO Auto-generated method stub
+		return totalCost;
+	}
+
 	public String getBookingid() {
 		return bookingid;
 	}
