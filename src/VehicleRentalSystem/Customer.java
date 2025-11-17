@@ -4,27 +4,32 @@ package VehicleRentalSystem;
 public class Customer {
 
 	 private  String name;
+	 private  String CustomerId;
 	 private String contact;
 	 private String age;
 	 private String AadharCard;
 	 private String type;
     
 	
+
 	/**
 	 * @param name
+	 * @param customerId
 	 * @param contact
 	 * @param age
 	 * @param aadharCard
 	 * @param type
 	 */
-	public Customer(String name, String contact, String age, String aadharCard, String type) {
+	public Customer(String name, String customerId, String contact, String age, String aadharCard, String type) {
 		super();
 		this.name = name;
+		CustomerId = customerId;
 		this.contact = contact;
 		this.age = age;
-		this.AadharCard = aadharCard;
+		AadharCard = aadharCard;
 		this.type = type;
 	}
+
 
 
 	public String getName() {
@@ -32,9 +37,23 @@ public class Customer {
 	}
 
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+
+	public String getCustomerId() {
+		return CustomerId;
+	}
+
+
+
+	public void setCustomerId(String customerId) {
+		CustomerId = customerId;
+	}
+
 
 
 	public String getContact() {
@@ -42,9 +61,11 @@ public class Customer {
 	}
 
 
+
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
+
 
 
 	public String getAge() {
@@ -52,9 +73,11 @@ public class Customer {
 	}
 
 
+
 	public void setAge(String age) {
 		this.age = age;
 	}
+
 
 
 	public String getAadharCard() {
@@ -62,9 +85,11 @@ public class Customer {
 	}
 
 
+
 	public void setAadharCard(String aadharCard) {
 		AadharCard = aadharCard;
 	}
+
 
 
 	public String getType() {
@@ -72,7 +97,15 @@ public class Customer {
 	}
 
 
+
 	public void setType(String type) {
 		this.type = type;
+	}
+
+
+
+	public void getDetails() {
+		// TODO Auto-generated method stub
+		
 	}
 }

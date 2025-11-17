@@ -53,6 +53,6 @@ public abstract class Vehicle implements Rentable {
 	}
 
 	public void displayInfo() {
-        System.out.println(vehicleId + " | " + name + " | ₹" + dailyRate + "/day | " + (isAvailable ? "Available" : "Rented"));
+        System.out.println(vehicleId + " | " + name + " | " + dailyRate + "/day | " + (isAvailable ? "Available" : "Rented"));
     }
 }

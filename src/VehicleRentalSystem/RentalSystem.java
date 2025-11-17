@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 		 public class RentalSystem{
 		     private static List<Vehicle> vehicles = new ArrayList<>();
+		     private static List<Customer> customers = new ArrayList<>();
+		     private static List<VehicleBooking> vehicleBookings = new ArrayList<>();
 		     private static Scanner scanner = new Scanner(System.in);
 
 		     public static void main(String[] args) {
@@ -26,12 +28,13 @@ import java.util.ArrayList;
 		             switch (choice) {
 		                 case 1 -> showVehicles();
 		                 case 2 -> VehicleBooking();
-		                 case 3 -> displayVehicleBooking();
-		                 case 4 -> System.out.println("Thank you..");
+		                 case 3 -> VehicleBooking();
+		                 case 4 -> displayVehicleBooking();
+		                 case 5 -> System.out.println("Thank you..");
 		                 default -> System.out.println("Invalid choice.");
 		             }
 		             
-		         } while (choice != 4);
+		         } while (choice != 5);
 		     }
 
 		     private static void initializeVehicle() {
@@ -49,10 +52,11 @@ import java.util.ArrayList;
 		         scanner.nextLine(); // consume newline
 		         System.out.print("Enter Customer ID: ");
 		         String id = scanner.nextLine();
-		         for(VehicleBooking  p: VehicleBookings )
+		         for(Customer  p: customer )
 		         {
-		         	if(p.getVehicle().equalsIgnoreCase(id))
-		         	{
+		        	 if (p.getCustomerId().equalsIgnoreCase(id)) {
+		        		 
+		 
 		         		System.out.println("Customer already rent Vehicle");
 		         		return;
 		         	}
@@ -99,9 +103,9 @@ import java.util.ArrayList;
 		         }
 		     }
 
-		     private static Patient findVehicleBookingById(String id) {
-		         for (VehicleBooking p : VehicleBooking) {
-		             if (p.getVehicleBookingId().equals(id)) {
+		     private static VehicleBooking findVehicleBookingById(String id) {
+		         for (VehicleBooking p : VehicleBookings) {
+		             if (p.getBookingid().equals(id)) {
 		                 return p;
 		             }
 		         }
@@ -110,7 +114,7 @@ import java.util.ArrayList;
 
 		     private static Customer findCustonerById(String spec) {
 		         for (Customer d : Customer) {
-		             if (d.get().equalsIgnoreCase(spec)) {
+		             if (d.getCustomer().equalsIgnoreCase(spec)) {
 		                 return d;
 		             }
 		         }

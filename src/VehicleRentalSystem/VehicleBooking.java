@@ -17,11 +17,19 @@ public  class VehicleBooking  {
 			int days, double totalCost) {
 		super();
 		this.bookingid = bookingid;
-		Customer = customer;
-		Vehicle = vehicle;
+		this.Customer = customer;
+	    this.Vehicle = vehicle;
 		this.days = days;
 		this.totalCost = totalCost;
 	}
+
+    public void displaySummary() {
+        System.out.println("\n--- VehicleBooking Summary ---");
+        System.out.println("Date: " + days);
+        System.out.println("totalCost Bill: ₹" + totalCost());
+    }
+
+	
 	public String getBookingid() {
 		return bookingid;
 	}

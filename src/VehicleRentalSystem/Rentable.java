@@ -2,7 +2,7 @@ package VehicleRentalSystem;
 
 
 	public interface Rentable {
-	    void rent(int days) throws VehicleNotAvailableException;
+	    void rent(int days);
 	    void returnVehicle();
 	}
 
