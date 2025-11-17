@@ -52,7 +52,7 @@ import java.util.ArrayList;
 		         scanner.nextLine(); // consume newline
 		         System.out.print("Enter Customer ID: ");
 		         String id = scanner.nextLine();
-		         for(Customer  p: customer )
+		         for(Customer  p: customers )
 		         {
 		        	 if (p.getCustomerId().equalsIgnoreCase(id)) {
 		        		 
