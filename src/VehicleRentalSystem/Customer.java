@@ -7,8 +7,7 @@ public class Customer {
 	 private  String CustomerId;
 	 private String contact;
 	 private String age;
-	 private String AadharCard;
-	 private String type;
+	
     
 	
 
@@ -20,87 +19,37 @@ public class Customer {
 	 * @param aadharCard
 	 * @param type
 	 */
-	public Customer(String name, String customerId, String contact, String age, String aadharCard, String type) {
+
+	
+	public void displayCustomer() {
+        System.out.println("\n--- VehicleBooking Summary ---");
+        System.out.println("name: " + name);
+        System.out.println("customerId: " + CustomerId);
+        System.out.println("contact: " + contact);
+        System.out.println("age: " + age);
+        
+    }
+
+	
+
+
+	/**
+	 * @param name
+	 * @param customerId
+	 * @param contact
+	 * @param age2
+	 * @param aadharCard
+	 * @param type
+	 */
+	public Customer(String name, String customerId, String contact, String age2) {
 		super();
 		this.name = name;
 		CustomerId = customerId;
 		this.contact = contact;
-		this.age = age;
-		AadharCard = aadharCard;
-		this.type = type;
+		this.age = age2;
+		
 	}
 
-
-
-	public String getName() {
-		return name;
-	}
-
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
-	public String getCustomerId() {
-		return CustomerId;
-	}
-
-
-
-	public void setCustomerId(String customerId) {
-		CustomerId = customerId;
-	}
-
-
-
-	public String getContact() {
-		return contact;
-	}
-
-
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-
-
-
-	public String getAge() {
-		return age;
-	}
-
-
-
-	public void setAge(String age) {
-		this.age = age;
-	}
-
-
-
-	public String getAadharCard() {
-		return AadharCard;
-	}
-
-
-
-	public void setAadharCard(String aadharCard) {
-		AadharCard = aadharCard;
-	}
-
-
-
-	public String getType() {
-		return type;
-	}
-
-
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 
 
@@ -108,4 +57,31 @@ public class Customer {
 		// TODO Auto-generated method stub
 		
 	}
+	public static void add(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+	public String getCustomer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getCustomerId() {
+		return CustomerId;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public String getAge() {
+		return age;
+	}
+	
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", CustomerId=" + CustomerId + ", age=" + age + "]";
+	}
+	
+	
 }

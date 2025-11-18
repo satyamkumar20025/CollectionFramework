@@ -20,39 +20,33 @@ public abstract class Vehicle implements Rentable {
 
   
 
-    public String getVehicleId() {
+	public String getVehicleId() {
 		return vehicleId;
 	}
 
-	public void setVehicleId(String vehicleId) {
-		this.vehicleId = vehicleId;
-	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+
 
 	public double getDailyRate() {
 		return dailyRate;
 	}
 
-	public void setDailyRate(double dailyRate) {
-		this.dailyRate = dailyRate;
-	}
 
 	public boolean isAvailable() {
 		return isAvailable;
 	}
 
+
+
 	public void setAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
 
-	public void displayInfo() {
+	public void displayVehicle() {
         System.out.println(vehicleId + " | " + name + " | " + dailyRate + "/day | " + (isAvailable ? "Available" : "Rented"));
     }
 }

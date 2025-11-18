@@ -1,8 +1,6 @@
 package VehicleRentalSystem;
 
-
-	public interface Rentable {
-	    void rent(int days);
-	    void returnVehicle();
-	}
-
+interface  Rentable{
+	void rent (int days);
+	void returnVehcle();
+}

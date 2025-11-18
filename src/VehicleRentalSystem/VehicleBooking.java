@@ -1,11 +1,10 @@
 package VehicleRentalSystem;
-static
+
 public  class VehicleBooking  { 
 	String bookingid;
 	Customer customer;
 	Vehicle vehicle;
 	int days;
-	double totalCost;
 	/**
 	 * @param bookingid
 	 * @param customer
@@ -13,57 +12,47 @@ public  class VehicleBooking  {
 	 * @param days
 	 * @param totalCost
 	 */
-	public VehicleBooking(String bookingid, VehicleRentalSystem.Customer customer, VehicleRentalSystem.Vehicle vehicle,
-			int days, double totalCost) {
+	
+	public VehicleBooking(String bookingid, Customer customer, Vehicle vehicle,int days) {
 		super();
 		this.bookingid = bookingid;
-		this.Customer = customer;
-	    this.Vehicle = vehicle;
+		this.customer = customer;
+	    this.vehicle = vehicle;
 		this.days = days;
-		this.totalCost = totalCost;
+		
 	}
 
     public void displaySummary() {
-        System.out.println("\n--- VehicleBooking Summary ---");
+        System.out.println("\n--- Vehicle Booking Summary ---");
+        System.out.println("bookingid: " + bookingid);
+        customer.displayCustomer();
+        vehicle.displayVehicle();
         System.out.println("Date: " + days);
-        System.out.println("totalCost Bill: ₹" + totalCost());
+        System.out.println("Total Cost: " + vehicle.calculateRentalCost(days));
     }
 
-	
-	private String totalCost() {
+	public static boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return totalCost;
+		return false;
 	}
 
 	public String getBookingid() {
 		return bookingid;
 	}
-	public void setBookingid(String bookingid) {
-		this.bookingid = bookingid;
-	}
+
+
 	public Customer getCustomer() {
-		return Customer;
+		return customer;
 	}
-	public void setCustomer(Customer customer) {
-		Customer = customer;
-	}
+
 	public Vehicle getVehicle() {
-		return Vehicle;
+		return vehicle;
 	}
-	public void setVehicle(Vehicle vehicle) {
-		Vehicle = vehicle;
-	}
+
+
 	public int getDays() {
 		return days;
 	}
-	public void setDays(int days) {
-		this.days = days;
-	}
-	public double getTotalCost() {
-		return totalCost;
-	}
-	public void setTotalCost(double totalCost) {
-		this.totalCost = totalCost;
-	}
-	
+
+
 }

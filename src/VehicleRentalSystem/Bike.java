@@ -19,6 +19,22 @@ public class Bike extends Vehicle  {
 		return getDailyRate() * days ; 
 	}
 
+
+
+	@Override
+	public void rent(int days) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void returnVehcle() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 	
