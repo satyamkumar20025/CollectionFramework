@@ -2,50 +2,29 @@ package Online_Course_Management_System;
 
 public abstract class Course implements Enrollable {
 
-	
-	private String name;
-	private float price;
-	private String type;
-	
-	/**
-	 * @param studentId
-	 * @param name
-	 * @param price
-	 * @param type
-	 */
-	public Course(String name, float price, String type) {
-		super();
+    private String courseId;
+    private String name;
+    private float price;
+    private String type;
 
-		this.name = name;
-		this.price = price;
-		this.type = type;
-	}
+    public Course(String courseId, String name, float price, String type) {
+        this.courseId = courseId;
+        this.name = name;
+        this.price = price;
+        this.type = type;
+    }
 
+    public String getCourseId() { return courseId; }
+    public String getName() { return name; }
+    public float getPrice() { return price; }
+    public String getType() { return type; }
 
-	public String getName() {
-		return name;
-	}
+    public void displayAllCourse() {
+        System.out.println("Course ID: " + courseId +
+                           ", Name: " + name +
+                           ", Price: " + price +
+                           ", Type: " + type);
+    }
 
-
-
-	public float getPrice() {
-		return price;
-	}
-
-
-	public String getType() {
-		return type;
-	}
-
-
-
-	public void displayAllCourse() {
-
-	        System.out.println();
-	    }
-    
-
-	abstract void ShowDetails();
-
-	
+    abstract void ShowDetails();
 }

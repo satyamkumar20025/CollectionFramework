@@ -2,26 +2,18 @@ package Online_Course_Management_System;
 
 public class VideoCourse extends Course {
 
+    public VideoCourse(String courseId, String name, float price, String type) {
+        super(courseId, name, price, type);
+    }
 
-	/**
-	 * @param name
-	 * @param price
-	 * @param type
-	 */
-	public VideoCourse( String name, float price, String type) {
-		super( name, price, type);
-	}
+    @Override
+    public void enroll(Student student) throws EnrollmentException {
+        if (student == null) throw new EnrollmentException("Student cannot be null");
+        student.addCourse(this);
+    }
 
-	@Override
-	public void enroll(Student student) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	void ShowDetails() {
-		// TODO Auto-generated method stub
-		
-	}
-
+    @Override
+    void ShowDetails() {
+        System.out.println("Video Course: " + getName() + " | Price: " + getPrice());
+    }
 }

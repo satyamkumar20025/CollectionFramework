@@ -3,13 +3,7 @@ package Hospital_System;
 
 import java.time.LocalDate;
 
-import java.time.LocalDate;
-package Hospital_System;
 
-import java.time.LocalDate;
-package Hospital_System;
-
-import java.time.LocalDate;
 
 public class Appointment {
 
@@ -45,3 +39,4 @@ public class Appointment {
 	public LocalDate getDate() {
 	    return date;
 	}
+}
