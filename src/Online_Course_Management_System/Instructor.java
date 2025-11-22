@@ -18,4 +18,11 @@ public class Instructor {
     public void displaySummary() {
         System.out.println("Instructor: " + instructorName + " (" + instructorId + ")");
     }
+
+	@Override
+	public String toString() {
+		return "Instructor [instructorId=" + instructorId + ", instructorName=" + instructorName + ", instructorNumber="
+				+ instructorNumber + "]";
+	}
+    
 }

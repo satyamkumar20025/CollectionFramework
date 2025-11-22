@@ -1,3 +1,4 @@
+
 package Online_Course_Management_System;
 
 import java.util.ArrayList;
@@ -36,4 +37,49 @@ public class Student {
             }
         }
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getContact() {
+		return contact;
+	}
+
+	public void setContact(int contact) {
+		this.contact = contact;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public List<Course> getEnrolledCourses() {
+		return enrolledCourses;
+	}
+
+	public void setEnrolledCourses(List<Course> enrolledCourses) {
+		this.enrolledCourses = enrolledCourses;
+	}
+
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
+    
 }

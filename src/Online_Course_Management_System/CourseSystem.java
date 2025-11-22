@@ -6,18 +6,20 @@ import java.util.Scanner;
 
 public class CourseSystem {
 
-    
+    // [] --> list
+	//[obj1->(name, id, contact,password,type,[courselist1]), obj2->(name, id, contact,password,type,[courselist1]),obj3->(name, id, contact,password,type,[courselist1]),]]==> students
 	private static List<Student> students = new ArrayList<>();
-    private static List<Instructor> instructors = new ArrayList<>();
-    private static List<Course> courses = new ArrayList<>();
+    //[obj1(id, name ,numner), obj2(id, name ,numner), obj3(id, name ,numner)]
+	private static List<Instructor> instructors = new ArrayList<>();
+    //[obj1(id, name, price)]
+	private static List<Course> courses = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         initializeCourse();
         int choice;
-
         do {
-            System.out.println("\n--- Welcome Online_Course_Management_System ---");
+        	System.out.println("\n--- Welcome Online_Course_Management_System ---");
             System.out.println("1. Show Courses");
             System.out.println("2. Student Registration");
             System.out.println("3. Course Purchase");
@@ -39,14 +41,15 @@ public class CourseSystem {
     }
 
     private static void initializeCourse() {
-    	courses.add(new LiveCourse("C001", "Java", 5000, "live"));
+    	Course obj=new LiveCourse("C001", "Java", 5000, "live");
+    	courses.add(obj);
     	courses.add(new VideoCourse("C002", "Python", 5000, "video"));
     }
 
     private static void showCourse() {
         System.out.println("\n📋 Available Courses:");
         for (Course v : courses) {
-            v.displayAllCourse();
+            System.out.println(v);
         }
     }
 
@@ -54,14 +57,13 @@ public class CourseSystem {
         scanner.nextLine(); // consume newline
         System.out.print("Enter Student ID: ");
         String studentId = scanner.nextLine();
-
-        for (Student s : students) {
-            if (s.getStudentId().equalsIgnoreCase(studentId)) {
-                System.out.println("Student with this ID already exists");
-                return;
-            }
+        Student obj=findStudentById(studentId);
+        //1. Check whether  student already present in the student list
+        if(obj!= null)
+        {
+        	System.out.println("Student already exist!!");
+        	return;
         }
-
         System.out.print("Enter Student Name: ");
         String name = scanner.nextLine();
 
@@ -74,10 +76,8 @@ public class CourseSystem {
 
         System.out.print("Enter The Course Type: ");
         String type = scanner.nextLine();
-
-        Student obj = new Student(studentId, name, contact, password, type);
-        students.add(obj);
-
+        Student obj1 = new Student(studentId, name, contact, password, type);
+        students.add(obj1);
         System.out.println(" Student registered successfully!");
     }
 
@@ -85,8 +85,17 @@ public class CourseSystem {
         scanner.nextLine(); // consume newline
         System.out.print("Enter Student ID: ");
         String studentId = scanner.nextLine();
+        System.out.print("Enter Course Name: ");
+        String courseName = scanner.nextLine();
 
-        Student student = null;
+        //1. Check whether student present in the purchased list
+        Student student = findStudentById(studentId);  
+        Course  obj = findStudentInEnrolledCourses(student, courseName);
+        if(obj!=null)
+        {
+        	System.out.println("Already purchased");
+        	return;
+        }
         for (Student s : students)
         {
             if (s.getStudentId().equalsIgnoreCase(studentId))
@@ -100,9 +109,7 @@ public class CourseSystem {
             return;
         }
         
-        System.out.print("Enter Course Name: ");
-        String courseName = scanner.nextLine();
-
+        
         for (Course v : courses) {
             if (v.getName().equalsIgnoreCase(courseName)) {
                 try {
@@ -118,7 +125,20 @@ public class CourseSystem {
         System.out.println(" Course not found.");
     }
 
-    private static void displayCoursePurchase() {
+    private static Course findStudentInEnrolledCourses(Student student, String courseName) {
+		List<Course> list= new ArrayList<>();
+		list=student.getEnrolledCourses();
+		for(Course obj: list)
+		{
+			if(obj.getName().equals(courseName))
+			{
+				return obj;
+			}
+		}
+		return null;
+	}
+
+	private static void displayCoursePurchase() {
         if (students.isEmpty()) {
             System.out.println("No students have purchased courses yet.");
             return;
@@ -142,6 +162,16 @@ public class CourseSystem {
         for (Course d : courses) {
             if (d.getCourseId().equalsIgnoreCase(courseId)) {
                 return d;
+            }
+        }
+        return null;
+    }
+    private static Student  findStudentById(String sid)
+    {
+
+        for (Student s : students) {
+            if (s.getStudentId().equalsIgnoreCase(sid)) {
+                return s;
             }
         }
         return null;
