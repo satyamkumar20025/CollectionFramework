@@ -1,0 +1,43 @@
+package Vehicle_Rental_System_Project;
+
+public class Bike extends Vehicle  {
+
+	/**
+	 * @param vehicleId
+	 * @param name
+	 * @param dailyRate
+	 */
+	public Bike(String vehicleId, String name, double dailyRate) {
+		super(vehicleId, name, dailyRate);
+	}
+
+
+
+	@Override
+	public double calculateRentalCost(int days) {
+		// TODO Auto-generated method stub
+		return getDailyRate() * days ; 
+	}
+
+
+
+	@Override
+	public void rent(int days) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void returnVehcle() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+}
+
+
