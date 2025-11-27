@@ -2,7 +2,7 @@ package BankingApplication_Project;
 
 import java.time.LocalDate;
 
-public class FixedDepositAccount extends BankAccount {
+public class FixedDepositAccount extends Account {
 
 
        private String fdId;
@@ -137,6 +137,7 @@ public class FixedDepositAccount extends BankAccount {
 		// TODO Auto-generated method stub
 		
 	}
+
 		
 		
 		

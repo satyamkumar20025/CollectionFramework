@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BankSystem {
-	private static List<BankAccount> accounts=new ArrayList<>();
+	private static List<Account> accounts=new ArrayList<>();
 	private static Scanner sc=new Scanner(System.in);
 
 	public static void main(String[]args) {

@@ -26,7 +26,10 @@ public class Customer {
 		this.mobilenumber = mobilenumber;
 		this.address = address;
 	}
-
+  public void addAccount(Account acc)
+  {
+	  accounts.add(acc);
+  }
 
 	public String getCustomername() {
 		return customername;
@@ -88,10 +91,10 @@ public class Customer {
 	void displayAllAccounts() {
 
 		for(Account acc :accounts)
-		{
+
 			acc.displayAccountDetails();
-			System.out.println("---------------------");
+	}	
 			
-		}
-}
+		
+
 }

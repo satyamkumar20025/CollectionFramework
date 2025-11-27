@@ -2,8 +2,9 @@ package BankingApplication_Project;
 
 import java.util.Scanner;
 
-public class LoanAccount extends BankAccount {
+public class LoanAccount extends Account {
 
+	
 	private int loan_id;
 	private double loan_Amount;
 	private String  cust_name,bra;
@@ -15,32 +16,40 @@ public class LoanAccount extends BankAccount {
 	private double total_payment;
 	private double salary;
 
-
-
 	 
 	 
 
-	 void input()
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the loan_idr:");
-		loan_id=sc.nextInt();
-		 sc.nextLine();
-        System.out.print("Enter the customer name:");
-        cust_name=sc.nextLine();
-        System.out.print("Enter the customer salary:");
-        salary=sc.nextFloat();
-        System.out.print("Enter the branch:");
-        bra=sc.nextLine();
-        System.out.print("Enter the loan Amount");
-        loan_Amount=sc.nextFloat();
-        System.out.print("Enter the  Annual Interest rate");
-        interest_Rate=sc.nextFloat();
-        System.out.print("Enter the time");
-        months=sc.nextFloat();
-
-        System.out.print("Enter the loan Tenure(in Mouths): ");
-        loan_Tenure=sc.nextFloat();
+	 /**
+	 * @param customers
+	 * @param accountnumber
+	 * @param balance
+	 * @param loan_id
+	 * @param loan_Amount
+	 * @param cust_name
+	 * @param bra
+	 * @param interest_Rate
+	 * @param months
+	 * @param emi
+	 * @param loan_Tenure
+	 * @param payment
+	 * @param total_payment
+	 * @param salary
+	 */
+	public LoanAccount(String customers, int accountnumber, int balance, int loan_id, double loan_Amount,
+			String cust_name, String bra, double interest_Rate, double months, double emi, double loan_Tenure,
+			double payment, double total_payment, double salary) {
+		super(customers, accountnumber, balance);
+		this.loan_id = loan_id;
+		this.loan_Amount = loan_Amount;
+		this.cust_name = cust_name;
+		this.bra = bra;
+		this.interest_Rate = interest_Rate;
+		this.months = months;
+		this.emi = emi;
+		this.loan_Tenure = loan_Tenure;
+		this.payment = payment;
+		this.total_payment = total_payment;
+		this.salary = salary;
 	}
        void calculateEMI()
        {
@@ -71,7 +80,7 @@ public class LoanAccount extends BankAccount {
 
 		   }
 	   }
-	void display()
+	void displayAccountDetails()
 	{
 		System.out.println(" name"+cust_name);
 		System.out.println(" customer id"+loan_id);
@@ -88,5 +97,21 @@ public class LoanAccount extends BankAccount {
 		
 
 		}
+	@Override
+	public void performTransaction(double amount, int choice)
+			throws InvalidAmountException, InsufficientBalanceException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void deposit(double amount) throws InvalidAmountException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

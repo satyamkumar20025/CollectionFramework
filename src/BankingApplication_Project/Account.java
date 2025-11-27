@@ -1,43 +1,56 @@
 package BankingApplication_Project;
 
-public class Account {
+public abstract class Account implements Transactionable {
 
-	protected String accountNumber;
-	protected double balance;
-	protected String accountType;
-	/**
-	 * @param accountNumber
+	protected   String customers;
+	protected   int Accountnumber;
+	protected   int balance;
+	
+	
+    /**
+	 * @param customers
+	 * @param accountnumber
 	 * @param balance
-	 * @param accountType
 	 */
-	public Account(String accountNumber, double balance, String accountType) {
+	public Account(String customers, int accountnumber, int balance) {
 		super();
-		this.accountNumber = accountNumber;
+		this.customers = customers;
+		Accountnumber = accountnumber;
 		this.balance = balance;
-		this.accountType = accountType;
-	}
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-	public double getBalance() {
-		return balance;
-	}
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-	public String getAccountType() {
-		return accountType;
-	}
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
-	@Override
-	public String toString() {
-		return "Account [accountNumber=" + accountNumber + ", balance=" + balance + ", accountType=" + accountType
-				+ "]";
 	}
 	
+	public String getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(String customers) {
+		this.customers = customers;
+	}
+
+	public int getAccountnumber() {
+		return Accountnumber;
+	}
+
+	public void setAccountnumber(int accountnumber) {
+		Accountnumber = accountnumber;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+
+	@Override
+	public String toString() {
+		return "BankAccount [customers=" + customers + ", Accountnumber=" + Accountnumber + ", balance=" + balance
+				+ "]";
+	}
+	 abstract  void deposit(double amount) throws InvalidAmountException;
+	 abstract  void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException;
+	abstract void displayAccountDetails();
+
+
 }

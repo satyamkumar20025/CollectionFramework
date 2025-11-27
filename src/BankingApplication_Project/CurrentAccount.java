@@ -2,7 +2,7 @@ package BankingApplication_Project;
 
 import java.util.Scanner;
 
-public class CurrentAccount extends BankAccount {
+public class CurrentAccount extends Account {
 
 
 	/**

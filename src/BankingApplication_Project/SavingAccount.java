@@ -2,7 +2,7 @@ package BankingApplication_Project;
 
 import java.util.Scanner;
 
-public class SavingAccount extends BankAccount {
+public class SavingAccount extends Account {
 
 	/**
 	 * @param customers
