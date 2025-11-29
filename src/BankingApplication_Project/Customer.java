@@ -10,7 +10,8 @@ public class Customer {
 	private int mobilenumber;
 	private String address;
 	
-	private static List<Account> accounts=new ArrayList<>();
+	private  List<Account> accounts=new ArrayList<>();
+	private static List<Customer> customer=new ArrayList<>();
 
 
 	/**
@@ -71,15 +72,6 @@ public class Customer {
 	}
 
 
-	public static List<Account> getAccounts() {
-		return accounts;
-	}
-
-
-	public static void setAccounts(List<Account> accounts) {
-		Customer.accounts = accounts;
-	}
-
 
 	@Override
 	public String toString() {
@@ -93,6 +85,16 @@ public class Customer {
 		for(Account acc :accounts)
 
 			acc.displayAccountDetails();
+	}
+	public static List<Customer> getCustomer() {
+		return customer;
+	}
+	public static void setCustomer(List<Customer> customer) {
+		Customer.customer = customer;
+	}
+	public void add(Customer customer2) {
+		// TODO Auto-generated method stub
+		customer.add(customer2);
 	}	
 			
 		

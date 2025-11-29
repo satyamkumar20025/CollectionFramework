@@ -2,55 +2,45 @@ package BankingApplication_Project;
 
 public abstract class Account implements Transactionable {
 
-	protected   String customers;
-	protected   int Accountnumber;
-	protected   int balance;
+	protected   String customerName;
+	protected   long Accountnumber;
+	protected   double balance;
 	
 	
-    /**
-	 * @param customers
+	 /**
+	 * @param customerName
 	 * @param accountnumber
 	 * @param balance
 	 */
-	public Account(String customers, int accountnumber, int balance) {
+	public Account(String customerName, long accountnumber, double balance) {
 		super();
-		this.customers = customers;
+		this.customerName = customerName;
 		Accountnumber = accountnumber;
 		this.balance = balance;
 	}
 	
-	public String getCustomers() {
-		return customers;
-	}
-
-	public void setCustomers(String customers) {
-		this.customers = customers;
-	}
-
-	public int getAccountnumber() {
-		return Accountnumber;
-	}
-
-	public void setAccountnumber(int accountnumber) {
-		Accountnumber = accountnumber;
-	}
-
-	public int getBalance() {
-		return balance;
-	}
-
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
-
-	@Override
+	 @Override
 	public String toString() {
-		return "BankAccount [customers=" + customers + ", Accountnumber=" + Accountnumber + ", balance=" + balance
+		return "Account [customerName=" + customerName + ", Accountnumber=" + Accountnumber + ", balance=" + balance
 				+ "]";
 	}
-	 abstract  void deposit(double amount) throws InvalidAmountException;
-	 abstract  void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException;
-	abstract void displayAccountDetails();
+	 
+
+	 public String getCustomerName() {
+		return customerName;
+	}
+
+	 public long getAccountnumber() {
+		 return Accountnumber;
+	 }
+
+	 public double getBalance() {
+		 return balance;
+	 }
+
+	public abstract  void deposit(double amount) throws InvalidAmountException;
+	public abstract  void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException;
+	public abstract void displayAccountDetails();
 
 
 }

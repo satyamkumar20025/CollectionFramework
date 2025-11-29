@@ -38,8 +38,8 @@ public class BankSystem {
 			case 4-> DeleteCustomer();
 			case 5 -> ShowAllCustomer();
 			case 6 -> CreateAccount();
-			case 8->Deposit();
-			case 7->Withdraw();
+			case 7->Deposit();
+			case 8->Withdraw();
 			case 9->Checkbalance();
 			case 10->ApplyLoan();
 			case 11->payLoanAccount();

@@ -1,117 +1,287 @@
 package BankingApplication_Project;
 
-import java.util.Scanner;
 
 public class LoanAccount extends Account {
 
-	
-	private int loan_id;
-	private double loan_Amount;
-	private String  cust_name,bra;
-	private double  interest_Rate;
-	private double months;
-	private double  emi;
-	private double  loan_Tenure;
-	private double  payment;
-	private double total_payment;
-	private double salary;
+    private int loanId;
+    private double loanAmount;
+    private String customerName, branch;
+    private double interestRate;
+    private double months;
+    private double emi;
+    private double loanTenure;
+    private double payment;
+    private double totalInterest;
+    private double salary;
 
-	 
-	 
+   
 
-	 /**
-	 * @param customers
+    /**
+	 * @param customerName
 	 * @param accountnumber
 	 * @param balance
-	 * @param loan_id
-	 * @param loan_Amount
-	 * @param cust_name
-	 * @param bra
-	 * @param interest_Rate
+	 * @param loanId
+	 * @param loanAmount
+	 * @param customerName2
+	 * @param branch
+	 * @param interestRate
 	 * @param months
 	 * @param emi
-	 * @param loan_Tenure
+	 * @param loanTenure
 	 * @param payment
-	 * @param total_payment
+	 * @param totalInterest
 	 * @param salary
 	 */
-	public LoanAccount(String customers, int accountnumber, int balance, int loan_id, double loan_Amount,
-			String cust_name, String bra, double interest_Rate, double months, double emi, double loan_Tenure,
-			double payment, double total_payment, double salary) {
-		super(customers, accountnumber, balance);
-		this.loan_id = loan_id;
-		this.loan_Amount = loan_Amount;
-		this.cust_name = cust_name;
-		this.bra = bra;
-		this.interest_Rate = interest_Rate;
+	public LoanAccount(String customerName, long accountnumber, double balance, int loanId, double loanAmount,
+			String customerName2, String branch, double interestRate, double months, double emi, double loanTenure,
+			double payment, double totalInterest, double salary) {
+		super(customerName, accountnumber, balance);
+		this.loanId = loanId;
+		this.loanAmount = loanAmount;
+		customerName = customerName2;
+		this.branch = branch;
+		this.interestRate = interestRate;
 		this.months = months;
 		this.emi = emi;
-		this.loan_Tenure = loan_Tenure;
+		this.loanTenure = loanTenure;
 		this.payment = payment;
-		this.total_payment = total_payment;
+		this.totalInterest = totalInterest;
 		this.salary = salary;
 	}
-       void calculateEMI()
-       {
-           emi=(loan_Amount*interest_Rate*Math.pow(1+ interest_Rate,months))/
-        		   (Math.pow(1+interest_Rate, months)-1);
-        
-		
-		}
-       void payment()
-        {
-    	   payment=emi*months;
-      
-        	
+
+	
+	
+	
+	@Override
+	public String toString() {
+		return "LoanAccount [loanId=" + loanId + ", loanAmount=" + loanAmount + ", customerName=" + customerName
+				+ ", branch=" + branch + ", interestRate=" + interestRate + ", months=" + months + ", emi=" + emi
+				+ ", loanTenure=" + loanTenure + ", payment=" + payment + ", totalInterest=" + totalInterest
+				+ ", salary=" + salary + "]";
+	}
+
+
+
+
+	public int getLoanId() {
+		return loanId;
+	}
+
+
+
+
+	public void setLoanId(int loanId) {
+		this.loanId = loanId;
+	}
+
+
+
+
+	public double getLoanAmount() {
+		return loanAmount;
+	}
+
+
+
+
+	public void setLoanAmount(double loanAmount) {
+		this.loanAmount = loanAmount;
+	}
+
+
+
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+
+
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+
+
+
+	public String getBranch() {
+		return branch;
+	}
+
+
+
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+
+
+
+	public double getInterestRate() {
+		return interestRate;
+	}
+
+
+
+
+	public void setInterestRate(double interestRate) {
+		this.interestRate = interestRate;
+	}
+
+
+
+
+	public double getMonths() {
+		return months;
+	}
+
+
+
+
+	public void setMonths(double months) {
+		this.months = months;
+	}
+
+
+
+
+	public double getEmi() {
+		return emi;
+	}
+
+
+
+
+	public void setEmi(double emi) {
+		this.emi = emi;
+	}
+
+
+
+
+	public double getLoanTenure() {
+		return loanTenure;
+	}
+
+
+
+
+	public void setLoanTenure(double loanTenure) {
+		this.loanTenure = loanTenure;
+	}
+
+
+
+
+	public double getPayment() {
+		return payment;
+	}
+
+
+
+
+	public void setPayment(double payment) {
+		this.payment = payment;
+	}
+
+
+
+
+	public double getTotalInterest() {
+		return totalInterest;
+	}
+
+
+
+
+	public void setTotalInterest(double totalInterest) {
+		this.totalInterest = totalInterest;
+	}
+
+
+
+
+	public double getSalary() {
+		return salary;
+	}
+
+
+
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+
+
+
+	public void calculateEMI() {
+        emi = (loanAmount * interestRate * Math.pow(1 + interestRate, months)) /
+                (Math.pow(1 + interestRate, months) - 1);
+    }
+
+    public void calculatePayment() {
+        payment = emi * months;
+    }
+
+    public void calculateTotalInterest() {
+        totalInterest = payment - loanAmount;
+    }
+
+    public void checkEligibility() {
+        if (loanAmount <= 10 * salary) {
+            System.out.println("Loan Approved");
+        } else {
+            System.out.println("Loan Not Approved");
         }
-        void Totalinterest()
-        {
-        	total_payment=payment-loan_Amount;
-        }
-        
-	   void Eligible()
-	   {
-		   if(loan_Amount<=10*salary)
-		   {
-			   System.out.print("LOAN APPROVE");
-		   }
-		   else {
-			   System.out.print("LOAN NOT APPROVE");
+    }
+    
+    
 
-		   }
-	   }
-	void displayAccountDetails()
-	{
-		System.out.println(" name"+cust_name);
-		System.out.println(" customer id"+loan_id);
-		System.out.println(" customer salary"+salary);
-		System.out.println("loan Amount"+loan_Amount);
-		System.out.println("Annual interest Amount"+interest_Rate);
-		System.out.println(" loan time"+months);
-		System.out.println(" branch name"+bra);
-		System.out.println(" TOTAL EMI AMOUNT"+emi);
-		System.out.println("loan_Tenure "+loan_Tenure);
-		System.out.println("total interest "+total_payment);
-		System.out.println("payment "+payment);
+    @Override
+    public void displayAccountDetails() {
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Loan ID: " + loanId);
+        System.out.println("Salary: " + salary);
+        System.out.println("Loan Amount: " + loanAmount);
+        System.out.println("Interest Rate: " + interestRate);
+        System.out.println("Months: " + months);
+        System.out.println("Branch: " + branch);
+        System.out.println("Calculated EMI: " + emi);
+        System.out.println("Total Payment: " + payment);
+        System.out.println("Total Interest: " + totalInterest);
+    }
 
-		
 
-		}
+
+
 	@Override
 	public void performTransaction(double amount, int choice)
 			throws InvalidAmountException, InsufficientBalanceException {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+
 	@Override
-	void deposit(double amount) throws InvalidAmountException {
+	public void deposit(double amount) throws InvalidAmountException {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+
 	@Override
-	void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
+	public void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
 		// TODO Auto-generated method stub
 		
 	}
-	
+    
+    
+
 }

@@ -6,31 +6,49 @@ public class CurrentAccount extends Account {
 
 
 	/**
-	 * @param customers
+	 * @param customerName
 	 * @param accountnumber
 	 * @param balance
 	 */
-	public CurrentAccount(String customers, int accountnumber, int balance) {
-		super(customers, accountnumber, balance);
+	public CurrentAccount(String customerName, long accountnumber, double balance) {
+		super(customerName, accountnumber, balance);
 	}
 
 
-	@Override
-	public String toString() {
-		return "CurrentAccount [getCustomers()=" + getCustomers() + ", getAccountnumber()=" + getAccountnumber()
-				+ ", getBalance()=" + getBalance() + ", toString()=" + super.toString() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + "]";
-	}
 
+	/*
+	 * @Override public String toString() { return "CurrentAccount [customerName=" +
+	 * customerName + ", Accountnumber=" + Accountnumber + ", balance=" + balance +
+	 * ", toString()=" + super.toString() + ", getCustomerName()=" +
+	 * getCustomerName() + ", getAccountnumber()=" + getAccountnumber() +
+	 * ", getBalance()=" + getBalance() + ", getClass()=" + getClass() +
+	 * ", hashCode()=" + hashCode() + "]"; }
+	 * 
+	 */
 
-    public void deposit(double amount) throws InvalidAmountException {
+	
+
+	public void deposit(double amount) throws InvalidAmountException {
         if (amount <= 0) throw new InvalidAmountException("Invalid Amount!");
+        
         balance += amount;
     }
 
-    public void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
+    @Override
+	public String toString() {
+		return "CurrentAccount [customerName=" + customerName + ", Accountnumber=" + Accountnumber + ", balance="
+				+ balance + "]";
+	}
+
+
+
+	public void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
+    	
         if (amount <= 0) throw new InvalidAmountException("Invalid Amount!");
+        
         if (balance < amount) throw new InsufficientBalanceException("Insufficient Balance!");
+        
+        
         balance -= amount;
     }
 
@@ -50,23 +68,13 @@ public class CurrentAccount extends Account {
 		}
 	}
 	
-	public int getAccountNumber() {
-		return Accountnumber;
-	}
-	
-	public String getOwnerName() {
-		return getOwnerName();
-	}
-	public int getBalance() {
-		return balance;
-	}
-
 
 	@Override
-	void displayAccountDetails() {
+
+public	void displayAccountDetails() {
 		// TODO Auto-generated method stub
 		
-		System.out.println("customers "+customers);
+		System.out.println("customers "+customerName);
 		System.out.println("Accountnumber "+Accountnumber);
 		System.out.println("balance "+balance);
 

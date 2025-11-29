@@ -4,24 +4,28 @@ import java.util.Scanner;
 
 public class SavingAccount extends Account {
 
-	/**
-	 * @param customers
+
+
+    /**
+	 * @param customerName
 	 * @param accountnumber
 	 * @param balance
 	 */
-	public SavingAccount(String customers, int accountnumber, int balance) {
-		super(customers, accountnumber, balance);
-		// TODO Auto-generated constructor stub
+	public SavingAccount(String customerName, long accountnumber, double balance) {
+		super(customerName, accountnumber, balance);
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "SavingAccount [customers=" + customers + ", Accountnumber=" + Accountnumber + ", balance=" + balance
-				+ "]";
+		return "SavingAccount [customerName=" + customerName + ", Accountnumber=" + Accountnumber + ", balance="
+				+ balance + "]";
 	}
 
 
-    public void deposit(double amount) throws InvalidAmountException {
+
+	public void deposit(double amount) throws InvalidAmountException {
         if (amount <= 0) throw new InvalidAmountException("Invalid Amount!");
         balance += amount;
     }
@@ -50,24 +54,13 @@ public class SavingAccount extends Account {
 		}
 	}
 	
-	public int getAccountNumber() {
-		return Accountnumber;
-	}
 	
-	public String getOwnerName() {
-		return getOwnerName();
-	}
-	public int getBalance() {
-		return balance;
-	}
-
-
 
 	@Override
-	void displayAccountDetails() {
+	public void displayAccountDetails() {
 		// TODO Auto-generated method stub
 		
-		System.out.println("customers "+customers);
+		System.out.println("customers "+customerName);
 		System.out.println("Accountnumber "+Accountnumber);
 		System.out.println("balance "+balance);
 
