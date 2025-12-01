@@ -301,6 +301,7 @@ public class BankSystem {
 		
 		 System.out.print("Enter Name: ");
          String name=sc.nextLine();
+         sc.nextLine();
          System.out.println("Entet Customer fathet name ");
          String fathername =sc.nextLine();
          System.out.println("Enter Customer gender ");
@@ -311,9 +312,11 @@ public class BankSystem {
          int mobile =sc.nextInt();
          System.out.println("Enter the Email ");
          String email=sc.nextLine();
+         sc.nextLine();
          System.out.println("Enter the branch name ");
          String brangh =sc.next();
          System.out.println("Entet the address");
+         sc.nextLine();
          String address=sc.nextLine();
          Customer obj=new Customer( id,"name","fathername","email",mobile,age,"gender","address","branch");
          customers.add(obj);    
