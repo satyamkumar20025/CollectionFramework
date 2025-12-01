@@ -42,5 +42,10 @@ public abstract class Account implements Transactionable {
 	public abstract  void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException;
 	public abstract void displayAccountDetails();
 
+	protected static int getpin() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }

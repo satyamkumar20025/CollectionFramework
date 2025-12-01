@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 public class KYC {
 
-	private String KYCID;
-	private String CustomerId;
-	private String douType;
-	private String docNumber;
-	private LocalDateTime issueDate;
-	private LocalDateTime expiredate;
-	private String status;
+	protected String KYCID;
+	protected String CustomerId;
+	protected String douType;
+	protected String docNumber;
+	protected String issueDate;
+	protected String expiredate;
+	protected String status;
 	/**
 	 * @param kYCID
 	 * @param customerId
@@ -20,8 +20,8 @@ public class KYC {
 	 * @param expiredate
 	 * @param status
 	 */
-	public KYC(String kYCID, String customerId, String douType, String docNumber, LocalDateTime issueDate,
-			LocalDateTime expiredate, String status) {
+	public KYC(String kYCID, String customerId, String douType, String docNumber, String issueDate, String expiredate,
+			String status) {
 		super();
 		KYCID = kYCID;
 		CustomerId = customerId;
@@ -31,32 +31,52 @@ public class KYC {
 		this.expiredate = expiredate;
 		this.status = status;
 	}
-	public String getKYCID() {
-		return KYCID;
-	}
-	public String getCustomerId() {
-		return CustomerId;
-	}
-	public String getDouType() {
-		return douType;
-	}
-	public String getDocNumber() {
-		return docNumber;
-	}
-	public LocalDateTime getIssueDate() {
-		return issueDate;
-	}
-	public LocalDateTime getExpiredate() {
-		return expiredate;
-	}
-	public String getStatus() {
-		return status;
-	}
 	@Override
 	public String toString() {
 		return "KYC [KYCID=" + KYCID + ", CustomerId=" + CustomerId + ", douType=" + douType + ", docNumber="
 				+ docNumber + ", issueDate=" + issueDate + ", expiredate=" + expiredate + ", status=" + status + "]";
 	}
-	
+	public String getKYCID() {
+		return KYCID;
+	}
+	public void setKYCID(String kYCID) {
+		KYCID = kYCID;
+	}
+	public String getCustomerId() {
+		return CustomerId;
+	}
+	public void setCustomerId(String customerId) {
+		CustomerId = customerId;
+	}
+	public String getDouType() {
+		return douType;
+	}
+	public void setDouType(String douType) {
+		this.douType = douType;
+	}
+	public String getDocNumber() {
+		return docNumber;
+	}
+	public void setDocNumber(String docNumber) {
+		this.docNumber = docNumber;
+	}
+	public String getIssueDate() {
+		return issueDate;
+	}
+	public void setIssueDate(String issueDate) {
+		this.issueDate = issueDate;
+	}
+	public String getExpiredate() {
+		return expiredate;
+	}
+	public void setExpiredate(String expiredate) {
+		this.expiredate = expiredate;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 }

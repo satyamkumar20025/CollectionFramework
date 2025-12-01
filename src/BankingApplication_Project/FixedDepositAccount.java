@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class FixedDepositAccount extends Account {
 
 
-       private String fdId;
+        private String fdId;
 	    private String ownername;
 	    private double principal;
 	    private double interestRate;

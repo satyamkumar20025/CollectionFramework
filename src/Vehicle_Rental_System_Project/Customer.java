@@ -53,14 +53,21 @@ public class Customer {
 
 
 
+
+	public Customer(int id, String string, String string2, String string3, int mobile, int age2, String string4,
+			String string5, String string6) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
 	public void getDetails() {
 		// TODO Auto-generated method stub
 		
 	}
 	public static void add(Customer obj) {
-		// TODO Auto-generated method stub
-		
-	}
+}
 	public String getCustomer() {
 		// TODO Auto-generated method stub
 		return null;
@@ -81,6 +88,14 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [name=" + name + ", CustomerId=" + CustomerId + ", age=" + age + "]";
+	}
+
+
+
+
+	public String getaccountsId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

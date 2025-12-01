@@ -3,12 +3,12 @@ package BankingApplication_Project;
 public class Address {
 
 	
-	private String housenumber;
-	private String Street;
-	private String city;
-	private String state;
-	private String country;
-	private String pincode;
+	protected String housenumber;
+	protected String Street;
+	protected String city;
+	protected String state;
+	protected String country;
+	protected String pincode;
 	/**
 	 * @param housenumber
 	 * @param street

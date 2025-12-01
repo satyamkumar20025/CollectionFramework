@@ -3,8 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Vehicle_Rental_System_Project.Customer;
+import Vehicle_Rental_System_Project.Vehicle;
+import Vehicle_Rental_System_Project.VehicleBooking;
+
 public class BankSystem {
-	private static List<Account> accounts=new ArrayList<>();
+	private static List<Customer> customers=new ArrayList<>();
+	private static List<KYC> kycs=new ArrayList<>();
+	private static List<ATMService> atms=new ArrayList<>();
+	private static List<Transaction> transactions=new ArrayList<>();
+	private static List<LoanAccount> loanAccounts=new ArrayList<>();
+
+
 	private static Scanner sc=new Scanner(System.in);
 
 	public static void main(String[]args) {
@@ -12,118 +22,336 @@ public class BankSystem {
 
 		do {
 			System.out.println("\n----- Thanks Come to Boss Bank ----");
-			System.out.println("1.  Add	Customer :");
-			System.out.println("2. View Customer :");
-			System.out.println("3. Update Customer  :");
-			System.out.println("4. Delete Customer :");
-			System.out.println("5. Show All Customer :");
-			System.out.println("6. Create Account :");
-			System.out.println("7. Deposit :");
-			System.out.println("8. Withdraw");
-			System.out.println("9.Check Balance");
-			System.out.println("10. Apply Loan");
-			System.out.println("11. pay Loan EMI");
-			System.out.println("12. Open FD Account ");
-			System.out.println("13. Close FD Account / Maturity ");
-			System.out.println("14. Exit ");
+			System.out.println("1.  Registration	Customer :");
+			System.out.println("2. Create Account :");
+			System.out.println("3.  LOAN SERVICE");
+			System.out.println("5. KYC :");
+
+			System.out.println("7. Exit ");
 
 
 			System.out.print("Enter Choice :");
 			choice=sc.nextInt();
 
 			switch(choice) {
-			case 1 ->AddCustomer();
-			case 2 ->ViewCustomer();
-			case 3-> UpdateCustomer();
-			case 4-> DeleteCustomer();
-			case 5 -> ShowAllCustomer();
-			case 6 -> CreateAccount();
-			case 7->Deposit();
-			case 8->Withdraw();
-			case 9->Checkbalance();
-			case 10->ApplyLoan();
-			case 11->payLoanAccount();
-			case 12->openFDAccount();
-			case 13->CloseFDAccount();
-			case 14->System.out.println("Thanks Come to Boss Bank");
+			case 1 ->Registration();
+			case 2 ->Account();
+			case 3-> loan();
+			case 4 -> kyc();
+			
+			case 5->System.out.println("Thanks Come to Boss Bank");
 
 			default -> System.out.println("Invalid Choice.");
 			}
 		}
-		while(choice!=14);
+		while(choice!=5);
 	}
 	
-private static Object CloseFDAccount() {
+
+	private static void kyc() {
 		// TODO Auto-generated method stub
+		System.out.println("do you want kyc ");
+	
+		System.out.println("Enter the kyc Id");
+		String id=sc.nextLine();
+		
+		System.out.println("Customer id");
+		String cid=sc.next();
+		
+	      System.out.println("Enter the Account number ");
+	      int number =sc.nextInt();
+	
+
+	      Account accounts= findCustomerByAccountNumber(id);
+	     if(accounts==null)
+	     {
+	    	 System.out.println("Customer  not found");
+	    	 return;
+	     }
+	    	 System.out.println("Enter the name");
+	    	 String name=sc.nextLine();
+	    	 System.out.println("Enter the doucument type");
+	    	 String doutype=sc.nextLine();
+	    	 System.out.println("Enter the doucument number ");
+	    	 String dounumber=sc.nextLine();
+	    	 System.out.println("Enter the issueDate");
+	    	 String iss=sc.nextLine();
+	    	 System.out.println("Enter the expiredate ");
+	    	 String ex=sc.nextLine();
+	    	 System.out.println("Enter the status ");
+	    	 String status=sc.nextLine();
+		     System.out.println("kyc Successful");
+           KYC ppp =new KYC("id","cid","name","doutype","dounuber",iss,ex,"status");
+		
+		
+		return;
+	
+}  
+
+
+	private static void  loan() {
+		// TODO Auto-generated method stub
+		    sc.nextLine();
+			System.out.println(".Do you apply loan ");
+			 System.out.print("Enter Customer ID: ");
+		      int cid = sc.nextInt();
+		      for(LoanAccount  p: loanAccounts )
+		      {
+		     	Customer obj=p.getLoanAccount();
+		     	String oldid=obj.getLoanId();
+		     	if(cid==(oldid))
+		     	{
+		     		System.out.println("Already open Account!");
+		     		return;
+		     	}
+		     	
+		      }
+		      LoanAccount loanAccounts= findLoanAccountById(cid);
+				 if(loanAccounts==null)
+				 {
+					 System.out.println("Customer not found.. Try to register");
+					 return;
+				 }
+				  
+				 System.out.print("Enter account number : ");
+				 long aid = sc.nextLong();
+
+		      Account accounts= findCustomerByAccountNumber(aid);
+		     if(accounts==null)
+		     {
+		    	 System.out.println("Customer  not found");
+		    	 return;
+		     }
+		     
+                System.out.println("Enter the customer name");
+                String name=sc.nextLine();
+		        System.out.print("Enter the customer salary:");
+		     double salary=sc.nextDouble();
+		        System.out.print("Enter the branch:");
+		       String bra=sc.nextLine();
+		        System.out.print("Enter the loan Amount");
+		      double  loanAmount=sc.nextDouble();
+		        System.out.print("Enter the  Annual Interest rate");
+		      double  insterestRate=sc.nextDouble();
+		        System.out.print("Enter the time");
+		      double  months=sc.nextDouble();
+		        System.out.print("Enter the emi");
+			      double  emi=sc.nextDouble();
+			      System.out.println("Enter the total interest rate ");
+			      double  totalinterest=sc.nextDouble();
+			      System.out.println("Enter the payment interest rate ");
+
+			      double  payment=sc.nextDouble();
+
+		        System.out.print("Enter the loan Tenure(in Mouths): ");
+		      double  loanTenure=sc.nextDouble();
+			
+		     System.out.println("loan Successful");
+		     LoanAccount  obj=new LoanAccount(cid,loanAmount, "name","bra",insterestRate,months,emi,loanTenure,payment,totalinterest,salary);
+		     obj.add(obj);
+		     
+			}
+
+
+	
+	private static void Account() {
+		// TODO Auto-generated method stub
+		int ch;
+
+		do {
+			
+			System.out.println("1.Current Accounts");
+			System.out.println("2.Saving Accounts");
+			System.out.println("3. ATM CARD SERVICE :");
+			System.out.println("4.  FD Account SERVICE ");
+
+			System.out.println("5.Exit");
+			
+			System.out.print("Enter Choice :");
+             ch=sc.nextInt();
+             
+             switch(ch)
+             {
+             case 1->Current();
+             case 2->saving();
+             case 3->System.out.println("Thanks Come to Boss Bank");
+             
+             default->System.out.println("Invalid Choice.");
+
+             }
+		}
+           while(ch !=5);
+             }
+  private static void saving() {
+	  sc.nextLine(); // consume newline
+      System.out.print("Enter Customer ID: ");
+      int cid = sc.nextInt();
+      for(Customer  p: customers )
+      {
+     	Customer obj=p.getCustomer();
+     	String oldid=obj.getCustomerId();
+     	if(cid==(oldid))
+     	{
+     		System.out.println("Already open Account!");
+     		return;
+     	}
+     	
+      }
+      Customer customer= findCustomerById(cid);
+		 if(customer==null)
+		 {
+			 System.out.println("Customer not found.. Try to register");
+			 return;
+		 }
 		return null;
+		  
+		 System.out.print("Enter account number : ");
+		 long aid = sc.nextLong();
+
+      Account accounts= findCustomerByAccountNumber(aid);
+     if(accounts==null)
+     {
+    	 System.out.println("Customer  not found");
+    	 return;
+     }
+     System.out.println("Enter the baleance");
+     double baleance=sc.nextDouble();
+     SavingAccount obj=new SavingAccount("cid",aid,baleance);
+     
 	}
 
-private static Object openFDAccount() {
-		// TODO Auto-generated method stub
+  private static void Current() {
+		 sc.nextLine(); // consume newline
+         System.out.print("Enter Customer ID: ");
+         int cid = sc.nextInt();
+         for(Customer  p: customers )
+         {
+        	Customer obj=p.getCustomer();
+        	String oldid=obj.getCustomerId();
+        	if(cid==(oldid))
+        	{
+        		System.out.println("Already open Account!");
+        		return;
+        	}
+        	
+         }
+         Customer customer= findCustomerById(cid);
+		 if(customer==null)
+		 {
+			 System.out.println("Customer not found.. Try to register");
+			 return;
+		 }
 		return null;
+		  
+		 System.out.print("Enter account number : ");
+		 long aid = sc.nextLong();
+
+         Account accounts= findCustomerByAccountNumber(aid);
+        if(accounts==null)
+        {
+       	 System.out.println("Customer  not found");
+       	 return;
+        }
+        System.out.println("Enter the baleance");
+        double baleance=sc.nextDouble();
+        SavingAccount obj=new SavingAccount("cid",aid,baleance);
+        
+
 	}
 
-private static Object payLoanAccount() {
-		// TODO Auto-generated method stub
-		return null;
+/////findCustomer By Account Number	
+	     private static void findCustomerByAccountNumber(long aid) {
+	            // TODO Auto-generated method stub
+	    	 
+	    	 for(Account a: accounts)
+	    	 {
+	    		 if(a.getaccountsNumber()==(aid)) {
+	    			 
+	    			 return a;
+	    		 }
+	    	 }
+	    	 
+	           return null;
+         }
+
+		 //  find Customer By Id
+	     private static Customer findCustomerById(int cid) {
+	    	 for (Customer c : customers) {
+	    		 if (c.getCustomerID()==(cid)) {
+	    			 return c;
+	    		 }
+	    	 }
+	    	 return null;
+	     
 	}
 
-private static Object ApplyLoan() {
+	private static void Registration() {
 		// TODO Auto-generated method stub
-		return null;
+		sc.nextLine(); // consume newline
+		System.out.print("Enter Customer ID: ");
+		int id = sc.nextInt();
+		for(Customer p: customers)
+		{
+			if(p.getCustomerId().equals(id))
+			{
+				System.out.println("Customer already exist!");
+				return;
+			}
+		}
+		
+		 System.out.print("Enter Name: ");
+         String name=sc.nextLine();
+         System.out.println("Entet Customer fathet name ");
+         String fathername =sc.nextLine();
+         System.out.println("Enter Customer gender ");
+         String gender=sc.nextLine();
+         System.out.println("Entet the Customer age ");
+         int age=sc.nextInt();
+         System.out.println("Enter the mobile number");
+         int mobile =sc.nextInt();
+         System.out.println("Enter the Email ");
+         String email=sc.nextLine();
+         System.out.println("Enter the branch name ");
+         String brangh =sc.next();
+         System.out.println("Entet the address");
+         String address=sc.nextLine();
+         Customer obj=new Customer( id,"name","fathername","email",mobile,age,"gender","address","branch");
+         customers.add(obj);    
 	}
 
-private static Object Checkbalance() {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<KYC> getKycs() {
+		return kycs;
 	}
 
-private static Object Withdraw() {
-		// TODO Auto-generated method stub
-		return null;
+	public static void setKycs(List<KYC> kycs) {
+		BankSystem.kycs = kycs;
 	}
 
-private static Object Deposit() {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<ATMService> getAtms() {
+		return atms;
 	}
 
-private static Object CreateAccount() {
-		// TODO Auto-generated method stub
-		return null;
+	public static void setAtms(List<ATMService> atms) {
+		BankSystem.atms = atms;
 	}
 
-private static Object ShowAllCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<Transaction> getTransactions() {
+		return transactions;
 	}
 
-private static Object DeleteCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+	public static void setTransactions(List<Transaction> transactions) {
+		BankSystem.transactions = transactions;
 	}
 
-private static Object UpdateCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<LoanAccount> getLoanAccounts() {
+		return loanAccounts;
 	}
 
-private static Object ViewCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+	public static void setLoanAccounts(List<LoanAccount> loanAccounts) {
+		BankSystem.loanAccounts = loanAccounts;
 	}
-
-private static Object AddCustomer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-public static List<Account> getAccounts() {
-	return accounts;
-}
-public static void setAccounts(List<Account> accounts) {
-	BankSystem.accounts = accounts;
-}
+	
+	
 
 
 }

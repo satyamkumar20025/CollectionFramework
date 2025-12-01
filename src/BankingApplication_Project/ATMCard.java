@@ -2,11 +2,11 @@ package BankingApplication_Project;
 
 public class ATMCard {
 
-	private String cardnumber;
-	private String holdername;
-	private int pin;
-	private String linkedAccountNo;
-	private int expirydate;
+	protected String cardnumber;
+	protected String holdername;
+	protected int pin;
+	protected String linkedAccountNo;
+	protected int expirydate;
 	/**
 	 * @param cardnumber
 	 * @param holdername

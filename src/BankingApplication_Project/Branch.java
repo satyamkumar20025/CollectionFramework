@@ -2,10 +2,10 @@ package BankingApplication_Project;
 
 public class Branch {
 
-	private String IFSCnumber;
-	private  String  branchName;
-	private String branchId;
-	private String city;
+	protected String IFSCnumber;
+	protected  String  branchName;
+	protected String branchId;
+	protected String city;
 	/**
 	 * @param iFSCnumber
 	 * @param branchName

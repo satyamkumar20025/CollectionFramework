@@ -1,7 +1,7 @@
 package BankingApplication_Project;
 
 
-public class LoanAccount extends Account {
+public class LoanAccount  {
 
     private int loanId;
     private double loanAmount;
@@ -14,15 +14,12 @@ public class LoanAccount extends Account {
     private double totalInterest;
     private double salary;
 
-   
+  
 
-    /**
-	 * @param customerName
-	 * @param accountnumber
-	 * @param balance
+	/**
 	 * @param loanId
 	 * @param loanAmount
-	 * @param customerName2
+	 * @param customerName
 	 * @param branch
 	 * @param interestRate
 	 * @param months
@@ -32,13 +29,12 @@ public class LoanAccount extends Account {
 	 * @param totalInterest
 	 * @param salary
 	 */
-	public LoanAccount(String customerName, long accountnumber, double balance, int loanId, double loanAmount,
-			String customerName2, String branch, double interestRate, double months, double emi, double loanTenure,
-			double payment, double totalInterest, double salary) {
-		super(customerName, accountnumber, balance);
+	public LoanAccount(int loanId, double loanAmount, String customerName, String branch, double interestRate,
+			double months, double emi, double loanTenure, double payment, double totalInterest, double salary) {
+		super();
 		this.loanId = loanId;
 		this.loanAmount = loanAmount;
-		customerName = customerName2;
+		this.customerName = customerName;
 		this.branch = branch;
 		this.interestRate = interestRate;
 		this.months = months;
@@ -49,8 +45,6 @@ public class LoanAccount extends Account {
 		this.salary = salary;
 	}
 
-	
-	
 	
 	@Override
 	public String toString() {
@@ -60,14 +54,11 @@ public class LoanAccount extends Account {
 				+ ", salary=" + salary + "]";
 	}
 
-
-
+	
 
 	public int getLoanId() {
 		return loanId;
 	}
-
-
 
 
 	public void setLoanId(int loanId) {
@@ -75,13 +66,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getLoanAmount() {
 		return loanAmount;
 	}
-
-
 
 
 	public void setLoanAmount(double loanAmount) {
@@ -89,13 +76,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public String getCustomerName() {
 		return customerName;
 	}
-
-
 
 
 	public void setCustomerName(String customerName) {
@@ -103,13 +86,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public String getBranch() {
 		return branch;
 	}
-
-
 
 
 	public void setBranch(String branch) {
@@ -117,13 +96,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getInterestRate() {
 		return interestRate;
 	}
-
-
 
 
 	public void setInterestRate(double interestRate) {
@@ -131,13 +106,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getMonths() {
 		return months;
 	}
-
-
 
 
 	public void setMonths(double months) {
@@ -145,13 +116,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getEmi() {
 		return emi;
 	}
-
-
 
 
 	public void setEmi(double emi) {
@@ -159,13 +126,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getLoanTenure() {
 		return loanTenure;
 	}
-
-
 
 
 	public void setLoanTenure(double loanTenure) {
@@ -173,13 +136,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getPayment() {
 		return payment;
 	}
-
-
 
 
 	public void setPayment(double payment) {
@@ -187,13 +146,9 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getTotalInterest() {
 		return totalInterest;
 	}
-
-
 
 
 	public void setTotalInterest(double totalInterest) {
@@ -201,20 +156,14 @@ public class LoanAccount extends Account {
 	}
 
 
-
-
 	public double getSalary() {
 		return salary;
 	}
 
 
-
-
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-
-
 
 
 	public void calculateEMI() {
@@ -240,7 +189,7 @@ public class LoanAccount extends Account {
     
     
 
-    @Override
+   
     public void displayAccountDetails() {
         System.out.println("Customer Name: " + customerName);
         System.out.println("Loan ID: " + loanId);
@@ -255,33 +204,14 @@ public class LoanAccount extends Account {
     }
 
 
-
-
-	@Override
-	public void performTransaction(double amount, int choice)
-			throws InvalidAmountException, InsufficientBalanceException {
+	public void add(LoanAccount obj) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-
-	@Override
-	public void deposit(double amount) throws InvalidAmountException {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-	@Override
-	public void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
-		// TODO Auto-generated method stub
-		
-	}
     
-    
+	
 
 }
