@@ -5,31 +5,32 @@ import java.util.List;
 
 public class Cart {
 
-         private List<Product>cars=new ArrayList<>();
+         private List<Product>cart=new ArrayList<>();
+         
 
          public void addproduct(Product p,int qty) throws OutOfStockException { 
 
         	 if(p.getQuantity()<qty) throw new OutOfStockException("product nahi hai");
         	 {
-        		 cars.add(p);
+        		 cart.add(p);
         		 System.out.println("product add ");
         	 }
         		 
          }
 
-         public void removeProduct(Product p) {
-        	 
-             cars.remove(p);
-             System.out.println("Product removed successfully.");
-         }
-
          public double calculateTotal() {
              double sum = 0;
-             for (Product p : cars) {
-                 sum += p.applyDiscount(double price)throws InvalidCouponException;
-            
-             
+             for (Product p : cart) {
+                 try {
+                     sum += p.applyDiscount(p.getPrice());
+                 } catch (InvalidCouponException e) {
+                     System.out.println("Discount not applied: " + e.getMessage());
+                     sum += p.getPrice();
+                 }
+             }
              return sum;
          }
 
+
+         
 }
