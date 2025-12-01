@@ -9,6 +9,6 @@ package Library_Management_System_Project;
 public interface Borrowable  {
 	
 
-	void borrow() throws ltemNotAvailableException;
-
+	void borrow(int days) throws ltemNotAvailableException;
+    void returnItem(int Lastdays);
 }

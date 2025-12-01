@@ -3,62 +3,48 @@ package Library_Management_System_Project;
 public abstract class Libraryltem implements Borrowable {
 
 
-	private int ltemid;
-	private String status;
-	private int borrow;
+	protected String ltemid;
+	protected boolean Available =true;
+	protected String title;
+	protected int borrowLimit;
 	
-	
- /**
-	 * @param ltemid
-	 * @param status
-	 * @param borrow
-	 */
-	public Libraryltem(int ltemid, String status, int borrow) {
+	 abstract double calculatePenalty(int daysLate);
+
+	 /**
+ 	 * @param ltemid
+ 	 * @param available
+ 	 * @param title
+ 	 * @param borrowLimit
+ 	 */
+	 public Libraryltem(String ltemid, boolean available, String title, int borrowLimit) {
 		super();
 		this.ltemid = ltemid;
-		this.status = status;
-		this.borrow = borrow;
-	}
+		Available = available;
+		this.title = title;
+		this.borrowLimit = borrowLimit;
+	 }
 
+	 @Override
+	 public String toString() {
+		return "Libraryltem [ltemid=" + ltemid + ", Available=" + Available + ", title=" + title + ", borrowLimit="
+				+ borrowLimit + "]";
+	 }
 
- public int getLtemid() {
-	return ltemid;
-}
+	 public String getLtemid() {
+		 return ltemid;
+	 }
 
+	 public boolean isAvailable() {
+		 return Available;
+	 }
 
- public void setLtemid(int ltemid) {
-	this.ltemid = ltemid;
- }
+	 public String getTitle() {
+		 return title;
+	 }
 
-
- public String getStatus() {
-	return status;
- }
-
-
- public void setStatus(String status) {
-	this.status = status;
- }
-
-
- public int getBorrow() {
-	return borrow;
- }
-
-
- public void setBorrow(int borrow) {
-	this.borrow = borrow;
- }
-
-
- @Override
-public String toString() {
-	return "Libraryltem [ltemid=" + ltemid + ", status=" + status + ", borrow=" + borrow + ", getClass()=" + getClass()
-			+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-}
-
-
- abstract	void calculatePenalty(int daysLate);
+	 public int getBorrowLimit() {
+		 return borrowLimit;
+	 }
 	
 
 	
