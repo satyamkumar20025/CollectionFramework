@@ -64,9 +64,10 @@ public class CustomerService {
 	     public void updateCustomerFatherName(int id, String CustomerFatherName) {
 	             Customer c=findCustomerById(id);
 	             if(c !=null) {
-	                 c.setCustomerFatherName(CustomerFatherName);
+	                 c.setCustomerNameFather(CustomerFatherName);
 ;
 	                 System.out.println("Customer updated successfully!");
+	
 	                 return ;
 	             }
 	         

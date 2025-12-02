@@ -6,6 +6,7 @@ import java.util.List;
 public class Customer {
 
 	protected  int CustomerID;
+	protected  int CustomerAccountNumber;
 	protected String CustomerName;
 	protected String CustomerNameFather;
 	protected String email;
@@ -20,6 +21,7 @@ public class Customer {
 
 	/**
 	 * @param customerID
+	 * @param customerAccountNumber
 	 * @param customerName
 	 * @param customerNameFather
 	 * @param email
@@ -29,10 +31,11 @@ public class Customer {
 	 * @param address
 	 * @param customerBranch
 	 */
-	public Customer(int customerID, String customerName, String customerNameFather, String email, int mobilenumber,
-			int age, String gender, Address address, String customerBranch) {
+	public Customer(int customerID, int customerAccountNumber, String customerName, String customerNameFather,
+			String email, int mobilenumber, int age, String gender, Address address, String customerBranch) {
 		super();
 		CustomerID = customerID;
+		CustomerAccountNumber = customerAccountNumber;
 		CustomerName = customerName;
 		CustomerNameFather = customerNameFather;
 		this.email = email;
@@ -47,9 +50,10 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [CustomerID=" + CustomerID + ", CustomerName=" + CustomerName + ", CustomerNameFather="
-				+ CustomerNameFather + ", email=" + email + ", mobilenumber=" + mobilenumber + ", age=" + age
-				+ ", gender=" + gender + ", address=" + address + ", CustomerBranch=" + CustomerBranch + "]";
+		return "Customer [CustomerID=" + CustomerID + ", CustomerAccountNumber=" + CustomerAccountNumber
+				+ ", CustomerName=" + CustomerName + ", CustomerNameFather=" + CustomerNameFather + ", email=" + email
+				+ ", mobilenumber=" + mobilenumber + ", age=" + age + ", gender=" + gender + ", address=" + address
+				+ ", CustomerBranch=" + CustomerBranch + "]";
 	}
 
 
@@ -62,6 +66,18 @@ public class Customer {
 
 	public void setCustomerID(int customerID) {
 		CustomerID = customerID;
+	}
+
+
+
+	public int getCustomerAccountNumber() {
+		return CustomerAccountNumber;
+	}
+
+
+
+	public void setCustomerAccountNumber(int customerAccountNumber) {
+		CustomerAccountNumber = customerAccountNumber;
 	}
 
 
@@ -158,14 +174,6 @@ public class Customer {
 
 	public void setCustomerBranch(String customerBranch) {
 		CustomerBranch = customerBranch;
-	}
-
-
-	
-
-	public void setCustomerFatherName(String customerFatherName) {
-		// TODO Auto-generated method stub
-		
 	}
 
 

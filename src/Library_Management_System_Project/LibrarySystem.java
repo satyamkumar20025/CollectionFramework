@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class LibrarySystem {
 
-	private static List<Book>book=new ArrayList<>();
-	private static List <Magazine>magazines=new ArrayList<>();
-	private static List<Bookingltem>bookingltems=new ArrayList<>();
+	
+	
 	private static List<Libraryltem> items = new ArrayList<>();
 	private static Scanner sc = new Scanner(System.in);
 
