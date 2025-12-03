@@ -13,7 +13,7 @@ public class BankSystem {
 	private static List<ATMCard> atms=new ArrayList<>();
 	private static List<Transaction> transactions=new ArrayList<>();
 	private static List<LoanAccount> loanAccounts=new ArrayList<>();
-
+    private static List<FixedDepositAccount>FixedDepositAccount=new ArrayList<>();
 
 	private static Scanner sc=new Scanner(System.in);
 
@@ -49,7 +49,10 @@ public class BankSystem {
 		while(choice!=5);
 	}
 	
-
+////////////// KYC METHOD==================}}}}}}
+///
+///
+///
 	private static void kyc() {
 		// TODO Auto-generated method stub
 		System.out.println("do you want kyc ");
@@ -92,7 +95,10 @@ public class BankSystem {
 	
 }  
 
-
+//////LOAN SERVICE-----------------------------------------]]]]]]]]]]
+///
+///
+///
 	private static void  loan() {
 		// TODO Auto-generated method stub
 		    sc.nextLine();
@@ -157,7 +163,10 @@ public class BankSystem {
 			}
 
 
-	
+	///////////Account SERVICE----------------------------------]]]]]]]
+	///
+	///
+	///
 	private static void Account() {
 		// TODO Auto-generated method stub
 		int ch;
@@ -189,23 +198,24 @@ public class BankSystem {
 		}
            while(ch !=5);
              }
-  private static void fd() {
+	///////New Fixed  Deposit Account*************************]]]]]]
+	///
+	///
+       private static void fd() {
 		// TODO Auto-generated method stub
-	  sc.nextLine(); // consume newline
-      System.out.print("Enter Customer ID: ");
-      int fdid = sc.nextInt();
-      for(Customer  p: customers )
-      {
-     	Customer obj=p.CustomerID();
-     	String oldid=obj.getCustomerName();
-     	if(fdid==(oldid))
-     	{
-     		System.out.println("Already open Account!");
-     		return;
-     		
-     	}
-     	
-      }
+	     sc.nextLine(); // consume newline
+         System.out.print("Enter Customer ID: ");
+            int fdid = sc.nextInt();
+             for(Customer  p: customers )
+              {
+     	        Customer obj=p.CustomerID();
+     	          String oldid=obj.getCustomerName();
+                 	if(fdid==(oldid))
+     	           {
+     		         System.out.println("Already open Account!");
+     	             	return;
+     	           }
+              }
       
 
       Customer customer= findCustomerById(fdid);
@@ -250,7 +260,10 @@ public class BankSystem {
 		return ;
 	}
 
-
+//////////// ATM SERVICE++++++++++++++++++++++++++]]]]]]]]
+///
+///
+///
   private static void atm() {
 		// TODO Auto-generated method stub
 	  sc.nextLine(); // consume newline
@@ -258,7 +271,7 @@ public class BankSystem {
       int cid = sc.nextInt();
       for(Customer  p: customers )
       {
-     	Customer obj=p.getCustomer();
+     	String obj=p.getCustomerBranch();
      	String oldid=obj.getCustomerName();
      	if(cid==(oldid))
      	{
@@ -300,8 +313,10 @@ public class BankSystem {
 	  
 		return ;
 	}
-
-
+//////Saving Account=========================}}}}}}
+///
+///
+///
   private static void saving() {
 	  
 	  sc.nextLine(); // consume newline
@@ -309,7 +324,7 @@ public class BankSystem {
       int cid = sc.nextInt();
       for(Customer  p: customers )
       {
-     	Customer obj=p.getCustomer();
+     	Customer obj=p.getCustomerBranch();
      	String oldid=obj.getCustomerName();
      	if(cid==(oldid))
      	{
@@ -340,14 +355,17 @@ public class BankSystem {
      SavingAccount obj=new SavingAccount("cid",aid,baleance);
      
 	}
-
+////// Current Account=========================}}}}}}
+///
+///
+///
   private static void Current() {
 		 sc.nextLine(); // consume newline
          System.out.print("Enter Customer ID: ");
          int cid = sc.nextInt();
          for(Customer  p: customers )
          {
-        	Customer obj=p.getCustomer();
+        	Customer obj=p.getCustomerBranch();
         	String oldid=obj.getCustomerId();
         	if(cid==(oldid))
         	{
@@ -380,7 +398,10 @@ public class BankSystem {
 
 	}
 
-/////findCustomer By Account Number	
+/////findCustomer By Account Number_____________________\\\\\
+///	
+///
+///
 	     private static Customer findCustomerByAccountNumber(long acno) {
 	            // TODO Auto-generated method stub
 	    	 
@@ -395,7 +416,9 @@ public class BankSystem {
 	           return null;
          }
 
-		 //  find Customer By Id
+/// //  find Customer By Id-----------------}}}}
+///
+///
 	     private static Customer findCustomerById(int cid) {
 	    	 for (Customer c : customers) {
 	    		 if (c.getCustomerID()==(cid)) {
@@ -405,7 +428,9 @@ public class BankSystem {
 	    	 return null;
 	     
 	}
-
+////////// Registration New Customer++++++++++++]]]]]
+///
+/// 
 	private static void Registration() {
 		// TODO Auto-generated method stub
 		sc.nextLine(); // consume newline
@@ -480,6 +505,16 @@ public class BankSystem {
 
 	public static void setAccounts(List<Account> accounts) {
 		BankSystem.accounts = accounts;
+	}
+
+
+	public static List<FixedDepositAccount> getFixedDepositAccount() {
+		return FixedDepositAccount;
+	}
+
+
+	public static void setFixedDepositAccount(List<FixedDepositAccount> fixedDepositAccount) {
+		FixedDepositAccount = fixedDepositAccount;
 	}
 	
 	
