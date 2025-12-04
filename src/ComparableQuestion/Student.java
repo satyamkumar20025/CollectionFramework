@@ -1,4 +1,4 @@
-package ComparableDemo;
+package ComparableQuestion;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,32 +18,29 @@ class Student implements Comparable<Student> {
     }
 
     
-
-    @Override
-<<<<<<< HEAD:src/ComparableDemo/Student.java
     public int compareTo(Student s) {
         
             return this.marks - marks;
     }
-=======
-    public int compareTo(Student p) {
-        
-            return integer.marks - p.marks;
-        }
->>>>>>> f46cf9a9c96ab62984498825da823e65b882d85b:src/Comparable/Student.java
-
+    
+    
     @Override
-    public String toString() {
-        return name + " - " + marks;
-    }
+	public String toString() {
+		return "Student [name=" + name + ", marks=" + marks + "]";
+	}
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
         
         students.add(new Student("Calu", 85));
         students.add(new Student("Boom", 92));
         students.add(new Student("Ali", 85));
         students.add(new Student("shita", 95));
+        students.add(new Student("kaliya", 85));
+        students.add(new Student("kalu", 92));
+        students.add(new Student("motu", 85));
+        students.add(new Student("bhura", 95));
+
 
         Collections.sort(students);
 

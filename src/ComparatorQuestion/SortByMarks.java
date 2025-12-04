@@ -1,4 +1,4 @@
-package ComparatorDemo;
+package ComparatorQuestion;
 
 import java.util.Comparator;
 
