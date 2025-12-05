@@ -29,11 +29,6 @@ public class Student implements Comparable<Student> {
 		System.out.println("Roll number:"+roll);
 	}
 	
-	public void calulate()
-	{
-		
-	}
-	
 	@Override
 	public int compareTo(Student s1)
 	{

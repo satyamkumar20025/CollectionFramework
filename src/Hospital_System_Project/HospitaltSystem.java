@@ -1,5 +1,7 @@
 package Hospital_System_Project;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 
 import java.time.LocalDate;
@@ -15,6 +17,13 @@ public class HospitaltSystem {
 	private static List<Appointment> appointments = new ArrayList<>();
     // user input Scanner class
 	private static Scanner scanner = new Scanner(System.in);
+	
+	  // persistence files
+    private static final File DATA_DIR = new File(System.getProperty("user.dir"), "data");
+    private static final File DOCTORS_FILE = new File(DATA_DIR, "doctors.ser");
+    private static final File PATIENTS_FILE = new File(DATA_DIR, "patients.ser");
+    private static final File APPOINTMENTS_FILE = new File(DATA_DIR, "appointments.ser");
+
 	
     public static void main(String[] args) {
       // call 
@@ -47,11 +56,19 @@ public class HospitaltSystem {
             
         } while (choice != 8);
     }
-
     private static void cancelAppointment() {
-		// TODO Auto-generated method stub
-		
-	}
+        scanner.nextLine();
+        System.out.println("Enter the Appointment Id to cancel:");
+        String apid = scanner.nextLine();
+        Appointment obj = findAppointmentById(apid);
+        if (obj == null) {
+            System.out.println("No appointment found with id: " + apid);
+            return;
+        }
+        appointments.remove(obj);
+        System.out.println("Appointment cancelled successfully.");
+        saveAppointmentsSafely();
+    }
 
 	private static void updateAppointment() {
 		// TODO Auto-generated method stub
@@ -64,7 +81,10 @@ public class HospitaltSystem {
 		String u_name=scanner.nextLine();
 		pobj.setName(u_name);
 		System.out.println("Name updated succesfully");
-	}
+        savePatientsSafely();
+        saveAppointmentsSafely();
+    }
+
 
 	private static Appointment findAppointmentById(String apid) {
 		// TODO Auto-generated method 
@@ -97,14 +117,19 @@ public class HospitaltSystem {
     	pobj.setName(u_name);
     
     	System.out.println("Patient Name updated Successfully");
+        savePatientsSafely();
+
     	return;
 	}
 
 	private static void initializeData() {
+        if (DOCTORS_FILE.exists()) return;
+
         doctors.add(new Doctor("Dr. Mehta", 45, "9999999999", "D101", "Cardiology"));
         doctors.add(new Doctor("Dr. Kapoor", 50, "8888888888", "D102", "Orthopedics"));
         doctors.add(new Doctor("Dr. Neeraj", 45, "45554556454", "D103","Heart Specialist"));
- 
+        saveDoctorsSafely();
+
     }
 
     private static void registerPatient() {
@@ -133,6 +158,10 @@ public class HospitaltSystem {
         String type = scanner.nextLine();
         Patient obj=new Patient(name, age, contact, id, type);
         patients.add(obj);
+        // serialize
+        savePatientsSafely();
+        System.out.println("Patient Registered Successfully!.");
+    
         System.out.println("Patient Registered Successfully1!.");
     }
 
@@ -179,6 +208,8 @@ public class HospitaltSystem {
         try {
             Appointment appointment = new Appointment(appointmentId, patient, doctor, date);
             appointments.add(appointment);
+            saveAppointmentsSafely();
+
             System.out.println("Appointment Booked Successfully.");
         } catch (InvalidAppointmentException e) {
             System.out.println("Error:" + e.getMessage());
@@ -213,4 +244,31 @@ public class HospitaltSystem {
         }
         return null;
     }
+    
+    // persistence helpers
+    private static void saveDoctorsSafely() {
+        try {
+            FileUtils.saveList(DOCTORS_FILE, doctors);
+        } catch (IOException e) {
+            System.err.println("Failed to save doctors: " + e.getMessage());
+        }
+    }
+
+    private static void savePatientsSafely() {
+        try {
+        	// Serialize
+            FileUtils.saveList(PATIENTS_FILE, patients);
+        } catch (IOException e) {
+            System.err.println("Failed to save patients: " + e.getMessage());
+        }
+    }
+
+    private static void saveAppointmentsSafely() {
+        try {
+            FileUtils.saveList(APPOINTMENTS_FILE, appointments);
+        } catch (IOException e) {
+            System.err.println("Failed to save appointments: " + e.getMessage());
+        }
+    }
+
 }
