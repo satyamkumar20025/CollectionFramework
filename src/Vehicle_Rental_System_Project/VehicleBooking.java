@@ -54,5 +54,12 @@ public  class VehicleBooking  {
 		return days;
 	}
 
+	public static int remove(VehicleBooking obj) {
+		// TODO Auto-generated method stub
+		
+		return VehicleBooking.remove(obj);
+	}
+	
+
 
 }

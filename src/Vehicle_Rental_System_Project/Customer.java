@@ -97,6 +97,29 @@ public class Customer {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+
+	public void setName(String u_name) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+
+
+
+	public static int remove(VehicleBooking obj) {
+		// TODO Auto-generated method stub
+		
+		return VehicleBooking.remove(obj);
+	}
 	
+
+
+
+
+
 	
 }
