@@ -1,8 +1,12 @@
 package Online_Course_Management_SystemProject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import Vehicle_Rental_System_Project.FileUtils;
 
 public class CourseSystem {
 
@@ -16,6 +20,14 @@ public class CourseSystem {
 	// [obj1(id, name, price)]
 	private static List<Course> courses = new ArrayList<>();
 	private static Scanner scanner = new Scanner(System.in);
+	
+	// persistence files
+	private static final File DATA_DIR = new File(System.getProperty("user.dir"), "data");
+	private static final File Student_FILE = new File(DATA_DIR, "Student.ser");
+	private static final File Course = new File(DATA_DIR, "Course.ser");
+	private static final File instructor_FILE = new File(DATA_DIR, "Instructor.ser");
+
+	
 
 	public static void main(String[] args) {
 		initializeCourse();
@@ -40,12 +52,22 @@ public class CourseSystem {
 			}
 
 		} while (choice != 5);
+		
+		/// save all data
+		///
+        saveAllData();
 	}
 
 	private static void initializeCourse() {
 		Course obj = new LiveCourse("C001", "Java", 5000, "live");
+		courses.add(new VideoCourse("C992", "Python", 5000, "video"));
+		courses.add(new VideoCourse("C062", "sql", 5000, "video"));
+		courses.add(new VideoCourse("C042", "c++", 5000, "video"));
+		courses.add(new VideoCourse("C00234", "angular", 5000, "video"));
+		
 		courses.add(obj);
-		courses.add(new VideoCourse("C002", "Python", 5000, "video"));
+		saveCourseSafely();
+
 	}
 
 	private static void showCourse() {
@@ -79,6 +101,8 @@ public class CourseSystem {
 		String type = scanner.nextLine();
 		Student obj1 = new Student(studentId, name, contact, password, type);
 		students.add(obj1);
+		saveStudentSafely();
+		saveCourseSafely();
 		System.out.println(" Student registered successfully!");
 	}
 
@@ -111,6 +135,8 @@ public class CourseSystem {
 			if (v.getName().equalsIgnoreCase(courseName)) {
 				try {
 					v.enroll(student);
+					saveCourseSafely();
+					
 					System.out.println(" Course purchased successfully!");
 				} catch (EnrollmentException e) {
 					System.out.println("EnrollmentException: " + e.getMessage());
@@ -171,4 +197,58 @@ public class CourseSystem {
 		}
 		return null;
 	}
-}
+	// persistence helpers
+		private static void saveStudentSafely() {
+			try {
+				FileUtils.saveList(Student_FILE, students);
+			} catch (IOException e) {
+				System.err.println("Failed to save Student: " + e.getMessage());
+			}
+		}
+
+		private static void saveCourseSafely() {
+			try {
+				// Serialize
+				FileUtils.saveList(Course, courses);
+			} catch (IOException e) {
+				System.err.println("Failed to save : Vehicle " + e.getMessage());
+			}
+		}
+
+		private static void saveInstructorSafely() {
+			try {
+				FileUtils.saveList(instructor_FILE, instructors);
+			} catch (IOException e) {
+				System.err.println("Failed to save Vehicle Booking : " + e.getMessage());
+			}
+		}
+
+		// deserialization
+		
+		private static void loadData() {
+			try {
+				students = FileUtils.loadList(Student_FILE);
+			} catch (Exception e) {
+				System.out.println("Could not load Student, using defaults: " + e.getMessage());
+			}
+			try {
+				courses = FileUtils.loadList(Course);
+			} catch (Exception e) {
+				System.out.println("Could not load Course: " + e.getMessage());
+			}
+			try {
+				instructors = FileUtils.loadList(instructor_FILE);
+			} catch (Exception e) {
+				System.out.println("Could not load Instructors : " + e.getMessage());
+			}
+		}
+
+		private static void saveAllData() {
+			saveStudentSafely();
+			saveCourseSafely();
+			saveInstructorSafely();
+			
+			
+			
+		}
+	}
